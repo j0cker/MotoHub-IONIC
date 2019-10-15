@@ -1,0 +1,115 @@
+<ion-header>
+    <ion-toolbar class="motohub" color="medium">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="." color=""></ion-back-button>
+        </ion-buttons>
+        <ion-title id="titulo" style="color: white">
+            <img
+                src="../../assets/img/logoMH2.png"
+                alt=""
+                style="max-width: 50%; margin-top: 3%"></ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-text color="dark">
+                        <h5>Datos de Salud</h5>
+                    </ion-text>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="stacked" color="light">Número de seguro</ion-label>
+                        <ion-input type="number" [(ngModel)]="seguro"></ion-input>
+                        <ion-icon
+                            (click)="presentPopover($event, 'seguro')"
+                            name="information-circle"
+                            color="light"
+                            size="small"
+                            slot="end"
+                            align-self-center="align-self-center"></ion-icon>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="stacked" color="light">Tipo de sangre
+                        </ion-label>
+                        <ion-input type="text" [(ngModel)]="sangre"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="stacked" color="light">Alergia(s)
+                        </ion-label>
+                        <ion-input type="text" [(ngModel)]="alergia"></ion-input>
+                        <ion-icon
+                            (click)="presentPopover($event, 'alergia')"
+                            name="information-circle"
+                            color="light"
+                            size="small"
+                            slot="end"
+                            align-self-center="align-self-center"></ion-icon>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="stacked" color="light">Donador de órganos<ion-icon name="information-circle"></ion-icon>
+                        </ion-label>
+                        <ion-select placeholder="Select one" [(ngModel)]="organos">
+                            <ion-select-option value="si">Si</ion-select-option>
+                            <ion-select-option value="no">No</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-text color="dark">
+                        <h5>Contacto de emergencia</h5>
+                    </ion-text>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-item>
+                        <ion-label position="stacked" color="light">Nombre de contacto</ion-label>
+                        <ion-input type="text" [(ngModel)]="contactoEmergencia"></ion-input>
+                        <ion-icon
+                            (click)="presentPopover($event, 'contactoEmergencia')"
+                            name="information-circle"
+                            color="light"
+                            size="small"
+                            slot="end"
+                            align-self-center="align-self-center"></ion-icon>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="stacked" color="light">Parentezco</ion-label>
+                        <ion-input type="text" [(ngModel)]="parentezco"></ion-input>
+                        <ion-icon
+                            (click)="presentPopover($event, 'parentezco')"
+                            name="information-circle"
+                            color="light"
+                            size="small"
+                            slot="end"
+                            align-self-center="align-self-center"></ion-icon>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="stacked" color="light">Celular</ion-label>
+                        <ion-input type="tel" maxlength="10" [(ngModel)]="celContacto"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-button
+                (click)="registro(seguro, sangre, alergia, organos, contactoEmergencia, parentezco, celContacto)"
+                color="success"
+                expand="block"
+                size="default"
+                style="margin-top: 30px; ">
+                Registrar
+            </ion-button>
+        </ion-grid>
+    </ion-content>

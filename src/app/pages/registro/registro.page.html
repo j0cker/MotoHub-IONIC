@@ -1,0 +1,34 @@
+
+
+<ion-content >
+
+  <div class="ion-padding motohub" color="motohub" style="height: 55%">
+    <img class="" src="../../assets/img/logoMH2.png" alt="" style="max-width: 70%; margin-left: 15%; margin-top: 30%;">
+    <!--<p id="titulo" class="ion-text-center" style="font-size:40px ;color: white;">Moto Hub</p>-->
+  </div>
+    
+  <div class="ion-padding" style="background: white; height: 45%">
+    <ion-item>
+      <ion-label position="stacked" color="light">Correo</ion-label>
+      <ion-input type="text" [(ngModel)]="correo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" color="light">Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="password1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" color="light">Confirmar contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="password2"></ion-input>
+    </ion-item>
+    <ion-button (click)="signin(correo, password1, password2)" color="success" expand="block" size="default" style="margin-top: 30px; ">
+      Siguiente
+    </ion-button>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p class="ion-text-center">¿Ya tienes cuenta?<ion-text color="secondary" routerLink="/login"> Inicia sesión</ion-text></p> 
+  </ion-toolbar>
+</ion-footer>

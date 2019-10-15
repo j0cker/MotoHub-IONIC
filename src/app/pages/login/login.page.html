@@ -1,0 +1,36 @@
+
+
+<ion-content >
+
+  <div class="ion-padding motohub" color="motohub" style="height: 55%">
+    
+    <img class="" src="../../assets/img/logoMH2.png" alt="" style="max-width: 70%; margin-left: 15%; margin-top: 30%;">
+    <!--<p id="titulo" class="ion-text-center" style="font-size:40px ;color: white;">Moto Hub</p>-->
+  </div>
+    
+  <div class="ion-padding" style="background: white; height: 45%">
+    <ion-button (click)="loginWithFB()" style="margin-top: 60px" color="" expand="block" size="default"><ion-icon name="logo-facebook" size="" style="margin-right: 10px"></ion-icon>Iniciar sesión con Facebook</ion-button>
+    <ion-card *ngIf="userData">
+      <ion-card-header>{{userData.username}}</ion-card-header>
+      <ion-card-content>{{userData.email}}</ion-card-content>
+    </ion-card>
+    <br>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="5"><hr color="grey"></ion-col>
+        <ion-col size="2" class="ion-text-center" color="grey">o</ion-col>
+        <ion-col size="5"><hr color="grey"></ion-col>
+      </ion-row>
+    </ion-grid>
+    <p class="ion-text-center">
+      Iniciar sesión con <ion-text color="secondary" routerLink="/login2">correo electrónico</ion-text>
+    </p>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p class="ion-text-center">¿No tienes cuenta?<ion-text color="secondary" routerLink="/signin"> Registrarse</ion-text></p> 
+  </ion-toolbar>
+</ion-footer>
