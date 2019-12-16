@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar class="motohub" color="">
+        <ion-buttons slot="start">
+            <ion-menu-button color="success" menu="perfil"></ion-menu-button>
+        </ion-buttons>
+        <ion-title id="titulo" style="color: white">
+            <img
+                src="../../assets/img/logoMH3.png"
+                alt=""
+                style="max-width: 50%; margin-top: 3%"></ion-title>
+        <ion-icon slot="end" name="person" color="success" size="large" routerLink="/perfil"></ion-icon>
+      </ion-toolbar>
+    </ion-header>
+  
+
+<ion-content class="ion-padding">
+
+  <h1 class="ion-text-center"><ion-icon slot="start" name="construct" color="success"></ion-icon> Servicios</h1>
+  
+  <ion-card class="ion-padding">
+      <ion-card-subtitle>Reporte de robo</ion-card-subtitle>
+      <ion-card-content>
+          <ion-list>
+              <ion-item *ngFor="let c of servicio | async" [routerLink]="c.redirectTo" style="font-size: 14px;">
+                {{c.name}}
+              </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>

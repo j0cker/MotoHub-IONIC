@@ -1,0 +1,74 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Editar mis motos</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-item color="transparent">
+        <ion-icon slot="start" name="bicycle" color="success"></ion-icon>
+        <h4 class="ion-text-center">
+            Mis Motos</h4>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+            <ion-col size="12">
+                <ion-text color="dark">
+                    <h5>Datos Aseguradora</h5>
+                </ion-text>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label type="number" position="stacked" color="{{label}}">Compañia Aseguradora</ion-label>
+                    <ion-input [(ngModel)]="compania" value="{{motos.compania}}"></ion-input>
+                    <ion-icon
+                        (click)="presentPopover($event, 'compania')"
+                        name="information-circle"
+                        color="light"
+                        size="small"
+                        slot="end"
+                        align-self-center="align-self-center"></ion-icon>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label type="number" position="stacked" color="{{label}}">Póliza</ion-label>
+                    <ion-input [(ngModel)]="poliza" value="{{motos.poliza}}"></ion-input>
+                    <ion-icon
+                        (click)="presentPopover($event, 'poliza')"
+                        name="information-circle"
+                        color="light"
+                        size="small"
+                        slot="end"
+                        align-self-center="align-self-center"></ion-icon>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button
+                    (click)="cerrarModal()"
+                    color="transparent"
+                    expand="block"
+                    size="default"
+                    style="margin-top: 30px; ">
+                    <span style="color: #707070">Cancelar</span>
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button
+                    (click)="editSeguro(compania, poliza)"
+                    color="success"
+                    expand="block"
+                    size="default"
+                    style="margin-top: 30px; ">
+                    Guardar
+                </ion-button>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+</ion-content>

@@ -21,16 +21,27 @@ export class Login2Page implements OnInit {
   ngOnInit() {
   }
 
-  entrar() {
-    console.log('Email: ' + this.correo);
-    console.log('Password: ' + this.password);
-    this.dataService.login(this.correo, this.password)
+  entrar(correo: any, password: any) {
+    console.log('Email: ' + correo);
+    console.log('Password: ' + password);
+
+    this.dataService.login(correo, password)
     .subscribe( (data: any) => {
 
-      console.log('success: ' + data.success);
       // this.userData = data;
       // tslint:disable-next-line: triple-equals
       if (data.success == 'TRUE') {
+        console.log('[Login][Entrar] Data: ' + data);
+        console.log('[Login][Entrar] success: ' + data.success);
+        console.log('[Login][Entrar] Token: ' + data.token);
+        console.log('[Login][Entrar] Usuario: ' + data.data[0].id_usuarios);
+
+        localStorage.setItem('idUsuario', data.data[0].id_usuarios);
+        localStorage.setItem('Token', data.token);
+
+        this.correo = '';
+        this.password = '';
+
         this.router.navigate( ['/dashboard'] );
         // this.bien();
       } else {
@@ -62,40 +73,20 @@ export class Login2Page implements OnInit {
 
   async bien() {
     const toast = await this.toastController.create({
-      header: 'Login',
       message: 'Sesión iniciada con Facebook',
       duration: 4000,
-      color: 'success',
-      position: 'bottom',
-      /*buttons: [
-        {
-          text: 'Done',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]*/
+      color: 'medium',
+      position: 'bottom'
     });
     toast.present();
   }
 
   async mal(msj: any) {
     const toast = await this.toastController.create({
-      header: 'Mensaje',
       message: msj,
       duration: 4000,
       color: 'danger',
-      position: 'bottom',
-      /*buttons: [
-        {
-          text: 'Done',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]*/
+      position: 'bottom'
     });
     toast.present();
   }

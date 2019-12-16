@@ -1,0 +1,39 @@
+<ion-header>
+        <ion-toolbar class="motohub">
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="." color="success"></ion-back-button>
+            </ion-buttons>
+            <ion-title id="titulo">
+            <img
+                src="../../assets/img/logoMH3.png"
+                alt=""
+                style="max-width: 50%; margin-top: 3%"></ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding " color="white">
+
+        <h1 class="ion-text-center">Código de Verificación</h1>
+        <br>
+            <ion-text color="dark">Para completar el registro de tu motocicleta por favor
+                introduce el código de activación de 6 dígitos que se envio al +52 {{user.celular}}.</ion-text>
+            <br>
+                <br>
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col>
+                                <ion-item color="tertiary" style="background-color: #e6fde6; border-radius: 7px;">
+                                    <ion-input type="tel" maxlength="6" color="success" [(ngModel)]="code"  style="font-size: 18px;"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <p class="ion-text-center" style="font-size: 14px;"><a (click)="resendSMS()"><ins>Reenviar código</ins></a></p>
+                    <ion-button
+                        (click)="verify(code)"
+                        style="margin-top: 30px"
+                        color="success"
+                        expand="block"
+                        size="default">Enviar</ion-button>
+
+                </ion-content>

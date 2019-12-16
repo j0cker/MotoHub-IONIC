@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { PasswordPage } from './password.page';
 
+import { VerificacionPasswordPage } from '../verificacion-password/verificacion-password.page';
+import { VerificacionPasswordPageModule } from '../verificacion-password/verificacion-password.module';
+
 const routes: Routes = [
   {
     path: '',
@@ -15,11 +18,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents: [
+    VerificacionPasswordPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    VerificacionPasswordPageModule
   ],
   declarations: [PasswordPage]
 })

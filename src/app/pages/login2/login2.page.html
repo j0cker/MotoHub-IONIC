@@ -17,7 +17,7 @@
       <ion-label position="stacked" color="light">Contraseña</ion-label>
       <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
-    <ion-button (click)="entrar()" color="success" expand="block" size="default" style="margin-top: 30px; ">
+    <ion-button (click)="entrar(correo, password)" color="success" expand="block" size="default" style="margin-top: 30px; ">
       Iniciar sesión
     </ion-button>
   </div>

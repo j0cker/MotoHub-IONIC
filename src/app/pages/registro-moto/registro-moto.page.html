@@ -1,75 +1,35 @@
 <ion-header>
-    <ion-toolbar class="motohub" color="medium">
+    <ion-toolbar class="motohub">
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="." color=""></ion-back-button>
+            <ion-back-button defaultHref="." color="success"></ion-back-button>
         </ion-buttons>
-        <ion-title id="titulo" style="color: white">
-            <img
-                src="../../assets/img/logoMH2.png"
-                alt=""
-                style="max-width: 50%; margin-top: 3%"></ion-title>
-        </ion-toolbar>
-    </ion-header>
+        <ion-title id="titulo">
+        <img
+            src="../../assets/img/logoMH3.png"
+            alt=""
+            style="max-width: 50%; margin-top: 3%"></ion-title>
+    </ion-toolbar>
+</ion-header>
 
     <ion-content class="ion-padding">
         <ion-grid>
+        
             <ion-row>
                 <ion-col size="12">
-                    <ion-text color="dark">
-                        <h5>Datos Personales</h5>
-                    </ion-text>
-                </ion-col>
-                <ion-col size="6">
-                    <ion-item>
-                        <ion-label position="stacked" color="light">Nombre
-                        </ion-label>
-                        <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+                    <ion-item color="transparent">
+                        <!-- Checked Checkbox -->
+                        <ion-checkbox mode="md" color="success" (ionChange)="conductor_change($event)" slot="start"></ion-checkbox>
+                        <ion-label color="light" style="font-size: 14px;">   ¿Soy yo también el conductor?</ion-label>
                     </ion-item>
                 </ion-col>
-                <ion-col size="6">
-                    <ion-item>
-                        <ion-label position="stacked" color="light">Apellido
-                        </ion-label>
-                        <ion-input type="text" [(ngModel)]="apellido"></ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col size="6">
-                    <ion-item>
-                        <ion-label position="stacked" color="light">Año de nacimiento
-                        </ion-label>
-                        <ion-input type="number" [(ngModel)]="edad"></ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col size="6">
-                    <ion-item>
-                        <ion-label position="stacked" color="light">Celular</ion-label>
-                        <ion-input type="tel" maxlength="10" [(ngModel)]="celular"></ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col size="6">
-                    <ion-item>
-                        <ion-label position="stacked" color="light">Moto Club</ion-label>
-                        <ion-input type="text" [(ngModel)]="motoClub"></ion-input>
-                        <ion-icon
-                            (click)="presentPopover($event, 'motoclub')"
-                            name="information-circle"
-                            color="light"
-                            size="small"
-                            slot="end"
-                            class="align-self-center"></ion-icon>
-                    </ion-item>
-                </ion-col>
-                
-            </ion-row>
-            <ion-row>
                 <ion-col size="12">
                     <ion-text color="dark">
                         <h5>Datos Motocicleta</h5>
                     </ion-text>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
-                        <ion-label position="stacked" color="light">Propietario</ion-label>
+                        <ion-label position="stacked" color="{{label}}">(*) Propietario</ion-label>
                         <ion-input type="text" [(ngModel)]="propietario"></ion-input>
                         <ion-icon
                             (click)="presentPopover($event, 'propietario')"
@@ -80,10 +40,10 @@
                             align-self-center="align-self-center"></ion-icon>
                     </ion-item>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
-                        <ion-label position="stacked" color="light">Conductor</ion-label>
-                        <ion-input type="text" [(ngModel)]="conductor"></ion-input>
+                        <ion-label position="stacked" color="{{label}}">(*) Conductor</ion-label>
+                        <ion-input type="text" [(ngModel)]="conductor" [disabled]="disabled"></ion-input>
                         <ion-icon
                             (click)="presentPopover($event, 'conductor')"
                             name="information-circle"
@@ -93,26 +53,28 @@
                             align-self-center="align-self-center"></ion-icon>
                     </ion-item>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
-                        <ion-label position="stacked" color="light">Marca</ion-label>
+                        <ion-label position="stacked" color="{{label}}">(*) Marca</ion-label>
                         <ion-select placeholder="Selecciona una" [(ngModel)]="marca">
-                            <ion-select-option value="bmw">BMW</ion-select-option>
-                            <ion-select-option value="suzuki">Suzuki</ion-select-option>
-                            <ion-select-option value="yamaha">Yamaha</ion-select-option>
-                            <ion-select-option value="kawasaki">Kawasaki</ion-select-option>
-                            <ion-select-option value="vento">Vento</ion-select-option>
-                            <ion-select-option value="italika">Italika</ion-select-option>
-                            <ion-select-option value="ducati">Ducati</ion-select-option>
-                            <ion-select-option value="carabela">Carabela</ion-select-option>
-                            <ion-select-option value="bajaj">Bajaj</ion-select-option>
-                            <ion-select-option value="harley davidson">Harley Davidson</ion-select-option>
+                            <ion-select-option value="BMW">BMW</ion-select-option>
+                            <ion-select-option value="Suzuki">Suzuki</ion-select-option>
+                            <ion-select-option value="Yamaha">Yamaha</ion-select-option>
+                            <ion-select-option value="Kawasaki">Kawasaki</ion-select-option>
+                            <ion-select-option value="Vento">Vento</ion-select-option>
+                            <ion-select-option value="Italika">Italika</ion-select-option>
+                            <ion-select-option value="Ducati">Ducati</ion-select-option>
+                            <ion-select-option value="Carabela">Carabela</ion-select-option>
+                            <ion-select-option value="Bajaj">Bajaj</ion-select-option>
+                            <ion-select-option value="Harley Havidson">Harley Davidson</ion-select-option>
+                            <ion-select-option value="Triumph">Triumph</ion-select-option>
+                            <ion-select-option value="Islo">Islo</ion-select-option>
                         </ion-select>
                     </ion-item>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
-                        <ion-label position="stacked" color="light">Submarca</ion-label>
+                        <ion-label position="stacked" color="{{label}}">(*) Submarca</ion-label>
                         <ion-input type="text" [(ngModel)]="submarca"></ion-input>
                         <ion-icon
                             (click)="presentPopover($event, 'submarca')"
@@ -123,10 +85,24 @@
                             align-self-center="align-self-center"></ion-icon>
                     </ion-item>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
-                        <ion-label position="stacked" color="light">Modelo (año)</ion-label>
-                        <ion-input type="number" [(ngModel)]="modelo"></ion-input>
+                        <ion-label position="stacked" color="{{label}}">(*) Modelo(año)</ion-label>
+                        <ion-select placeholder="Selecciona una" [(ngModel)]="modelo">
+                            <ion-select-option value="2020">2020</ion-select-option>
+                            <ion-select-option value="2019">2019</ion-select-option>
+                            <ion-select-option value="2018">2018</ion-select-option>
+                            <ion-select-option value="2017">2017</ion-select-option>
+                            <ion-select-option value="2016">2016</ion-select-option>
+                            <ion-select-option value="2015">2015</ion-select-option>
+                            <ion-select-option value="2014">2014</ion-select-option>
+                            <ion-select-option value="2013">2013</ion-select-option>
+                            <ion-select-option value="2013">2013</ion-select-option>
+                            <ion-select-option value="2012">2012</ion-select-option>
+                            <ion-select-option value="2011">2011</ion-select-option>
+                            <ion-select-option value="2010">2010</ion-select-option>
+                            <ion-select-option value="2009">2009</ion-select-option>
+                        </ion-select>
                         <ion-icon
                             (click)="presentPopover($event, 'modelo')"
                             name="information-circle"
@@ -135,8 +111,9 @@
                             slot="end"
                             align-self-center="align-self-center"></ion-icon>
                     </ion-item>
+                    <p style="color: #A50202;font-size: 10px;" [hidden]=hide3>* Favor de llenar los campos correctamente</p>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
                         <ion-label position="stacked" color="light">No. Motor</ion-label>
                         <ion-input type="number" [(ngModel)]="motor"></ion-input>
@@ -149,9 +126,9 @@
                             align-self-center="align-self-center"></ion-icon>
                     </ion-item>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
-                        <ion-label position="stacked" color="light">No. Serie (VIN)</ion-label>
+                        <ion-label position="stacked" color="{{label}}">(*) No. Serie (VIN)</ion-label>
                         <ion-input type="text" maxlength="17" [(ngModel)]="vin"></ion-input>
                         <ion-icon
                             (click)="presentPopover($event, 'vin')"
@@ -161,10 +138,11 @@
                             slot="end"
                             align-self-center="align-self-center"></ion-icon>
                     </ion-item>
+                    <p style="color: #A50202;font-size: 10px;" [hidden]=hide4>* Favor de llenar los campos correctamente</p>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
-                        <ion-label position="stacked" color="light">Cilindrada</ion-label>
+                        <ion-label position="stacked" color="{{label}}">(*) Cilindrada</ion-label>
                         <ion-input type="number" [(ngModel)]="cc"></ion-input>
                         <ion-icon
                             (click)="presentPopover($event, 'cc')"
@@ -175,47 +153,47 @@
                             align-self-center="align-self-center"></ion-icon>
                     </ion-item>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
-                        <ion-label position="stacked" color="light">Ciudad</ion-label>
+                        <ion-label position="stacked" color="{{label}}">(*) Ciudad</ion-label>
                         <ion-select placeholder="Selecciona una" [(ngModel)]="ciudad">
-                            <ion-select-option value="aguascalientes">Aguascalientes</ion-select-option>
-                            <ion-select-option value="baja california">Baja California</ion-select-option>
-                            <ion-select-option value="baja california sur">Baja California Sur</ion-select-option>
-                            <ion-select-option value="campeche">Campeche</ion-select-option>
-                            <ion-select-option value="coahuila">Coahuila</ion-select-option>
-                            <ion-select-option value="colima">Colima</ion-select-option>
-                            <ion-select-option value="chihuahua">Chihuahua</ion-select-option>
-                            <ion-select-option value="cdmx">CDMX</ion-select-option>
-                            <ion-select-option value="durango">Durango</ion-select-option>
-                            <ion-select-option value="guanajuato">Guanajuato</ion-select-option>
-                            <ion-select-option value="guerrero">Guerrero</ion-select-option>
-                            <ion-select-option value="hidalgo">Hidalgo</ion-select-option>
-                            <ion-select-option value="jalisco">Jalisco</ion-select-option>
-                            <ion-select-option value="mexico">México</ion-select-option>
-                            <ion-select-option value="michoacan">Michoacan</ion-select-option>
-                            <ion-select-option value="morelos">Morelos</ion-select-option>
-                            <ion-select-option value="nayarit">Nayarit</ion-select-option>
-                            <ion-select-option value="nuevo leon">Nuevo León</ion-select-option>
-                            <ion-select-option value="oaxaca">Oaxaca</ion-select-option>
-                            <ion-select-option value="puebla">Puebla</ion-select-option>
-                            <ion-select-option value="queretaro">Querétaro</ion-select-option>
-                            <ion-select-option value="quintana roo">Quintana Roo</ion-select-option>
-                            <ion-select-option value="slp">San Luis Potosí</ion-select-option>
-                            <ion-select-option value="sinaloa">Sinaloa</ion-select-option>
-                            <ion-select-option value="sonora">Sonora</ion-select-option>
-                            <ion-select-option value="tabasco">Tabasco</ion-select-option>
-                            <ion-select-option value="tamaulipas">Tamaulipas</ion-select-option>
-                            <ion-select-option value="tlaxcala">Tlaxcala</ion-select-option>
-                            <ion-select-option value="red">Veracruz</ion-select-option>
-                            <ion-select-option value="red">Yucatán</ion-select-option>
-                            <ion-select-option value="zacatecas">Zacatecas</ion-select-option>
+                            <ion-select-option value="Aguascalientes">Aguascalientes</ion-select-option>
+                            <ion-select-option value="Baja California">Baja California</ion-select-option>
+                            <ion-select-option value="Baja California Sur">Baja California Sur</ion-select-option>
+                            <ion-select-option value="Campeche">Campeche</ion-select-option>
+                            <ion-select-option value="Coahuila">Coahuila</ion-select-option>
+                            <ion-select-option value="Colima">Colima</ion-select-option>
+                            <ion-select-option value="Chihuahua">Chihuahua</ion-select-option>
+                            <ion-select-option value="CDMX">CDMX</ion-select-option>
+                            <ion-select-option value="Durango">Durango</ion-select-option>
+                            <ion-select-option value="Guanajuato">Guanajuato</ion-select-option>
+                            <ion-select-option value="Guerrero">Guerrero</ion-select-option>
+                            <ion-select-option value="Hidalgo">Hidalgo</ion-select-option>
+                            <ion-select-option value="Jalisco">Jalisco</ion-select-option>
+                            <ion-select-option value="México">México</ion-select-option>
+                            <ion-select-option value="Michoacan">Michoacan</ion-select-option>
+                            <ion-select-option value="Morelos">Morelos</ion-select-option>
+                            <ion-select-option value="Nayarit">Nayarit</ion-select-option>
+                            <ion-select-option value="Nuevo Leon">Nuevo León</ion-select-option>
+                            <ion-select-option value="Oaxaca">Oaxaca</ion-select-option>
+                            <ion-select-option value="Puebla">Puebla</ion-select-option>
+                            <ion-select-option value="Queretaro">Querétaro</ion-select-option>
+                            <ion-select-option value="Quintana Roo">Quintana Roo</ion-select-option>
+                            <ion-select-option value="SLP">San Luis Potosí</ion-select-option>
+                            <ion-select-option value="Sinaloa">Sinaloa</ion-select-option>
+                            <ion-select-option value="Sonora">Sonora</ion-select-option>
+                            <ion-select-option value="Tabasco">Tabasco</ion-select-option>
+                            <ion-select-option value="Tamaulipas">Tamaulipas</ion-select-option>
+                            <ion-select-option value="Tlaxcala">Tlaxcala</ion-select-option>
+                            <ion-select-option value="Veracruz">Veracruz</ion-select-option>
+                            <ion-select-option value="Yucatán">Yucatán</ion-select-option>
+                            <ion-select-option value="Cacatecas">Zacatecas</ion-select-option>
                         </ion-select>
                     </ion-item>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
-                        <ion-label position="stacked" color="light">Placas</ion-label>
+                        <ion-label position="stacked" color="{{label}}">(*) Placas</ion-label>
                         <ion-input type="text" [(ngModel)]="placas"></ion-input>
                     </ion-item>
                 </ion-col>
@@ -234,10 +212,9 @@
                 </ion-col>
             </ion-row>
             <ion-row>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
-                        <ion-label type="number" position="stacked" color="light">Compañia Aseguradora<ion-icon name="information-circle"></ion-icon>
-                        </ion-label>
+                        <ion-label type="number" position="stacked" color="{{label2}}">Compañia Aseguradora</ion-label>
                         <ion-input [(ngModel)]="compania" disabled="{{isDisabled}}"></ion-input>
                         <ion-icon
                             (click)="presentPopover($event, 'compania')"
@@ -248,9 +225,9 @@
                             align-self-center="align-self-center"></ion-icon>
                     </ion-item>
                 </ion-col>
-                <ion-col size="6">
+                <ion-col size="12">
                     <ion-item>
-                        <ion-label type="number" position="stacked" color="light">Póliza</ion-label>
+                        <ion-label type="number" position="stacked" color="{{label2}}">Póliza</ion-label>
                         <ion-input [(ngModel)]="poliza" disabled="{{isDisabled}}"></ion-input>
                         <ion-icon
                             (click)="presentPopover($event, 'poliza')"
@@ -263,7 +240,7 @@
                 </ion-col>
             </ion-row>
             <ion-button
-                (click)="regMoto(nombre,apellido,edad,celular,conductor,propietario,motoClub,marca,submarca,modelo,motor,vin,cc,ciudad,placas,compania,poliza)"
+                (click)="regMoto(conductor,propietario,marca,submarca,modelo,motor,vin,cc,ciudad,placas,compania,poliza)"
                 color="success"
                 expand="block"
                 size="default"

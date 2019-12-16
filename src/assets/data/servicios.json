@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Generacion de reporte de robo",
+        "redirectTo": "/perfil"
+    },
+    {
+        "name": "Consulta de reporte de robo",
+        "redirectTo": "/perfil"
+    }
+]

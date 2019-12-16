@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { RegistroSaludPage } from './registro-salud.page';
 import { PopinfoComponent } from '../../components/popinfo/popinfo.component';
 import { ComponentsModule } from '../../components/components.module';
+import { TerminosPage } from '../terminos/terminos.page';
+import { TerminosPageModule } from '../terminos/terminos.module';
 
 const routes: Routes = [
   {
@@ -18,14 +20,16 @@ const routes: Routes = [
 
 @NgModule({
   entryComponents: [
-    PopinfoComponent
+    PopinfoComponent,
+    TerminosPage
   ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    ComponentsModule
+    ComponentsModule,
+    TerminosPageModule
   ],
   declarations: [RegistroSaludPage]
 })

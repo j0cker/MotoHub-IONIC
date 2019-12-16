@@ -1,0 +1,115 @@
+<ion-header>
+    <ion-toolbar class="motohub" color="">
+        <ion-buttons slot="start">
+            <ion-menu-button color="success" menu="perfil"></ion-menu-button>
+        </ion-buttons>
+        <ion-title id="titulo" style="color: white">
+            <img
+                src="../../assets/img/logoMH3.png"
+                alt=""
+                style="max-width: 50%; margin-top: 3%"></ion-title>
+        <ion-icon slot="end" name="person" color="success" size="large" routerLink="/perfil"></ion-icon>
+      </ion-toolbar>
+    </ion-header>
+  
+
+<ion-content class="ion-padding">
+
+    <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+   <!-- fab placed to the top end -->
+   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="success" (click)="addMotos()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-item color="transparent">
+        <ion-icon slot="start" name="speedometer" color="success"></ion-icon>
+        <h1 class="ion-text-center"> Mis Motos</h1>
+    </ion-item>
+
+    <p style="font-size: 12px; ">Propietario: {{propietario}}</p>
+    <p style="font-size: 12px;">Conductor: {{conductor}}</p>
+
+    <ion-slides pager="true" style="--bullet-background-active: #028326;">
+      <ion-slide *ngFor="let c of newMoto">
+          <ion-list style="max-width: 2000px;">
+              <ion-card>
+                <ion-item>
+                  <ion-card-subtitle>Informacion de mi moto</ion-card-subtitle>
+                  <ion-icon slot="end" name="create" color="success" (click)="editMotos()"></ion-icon>
+                  <ion-icon slot="end" name="trash" color="success" (click)="deleteMotoAlert(c.vin)"></ion-icon>
+                </ion-item>
+          
+                <ion-card-content>
+                    <p style="font-size: 12px; ">Marca: {{c.marca}}</p>
+                    <p style="font-size: 12px;">Submarca: {{c.submarca}}</p>
+                    <p style="font-size: 12px; ">Modelo: {{c.modelo}}</p>
+                    <p style="font-size: 12px;">Motor: {{c.motor}}</p>
+                    <p style="font-size: 12px; ">VIN: {{c.vin}}</p>
+                    <p style="font-size: 12px;">CC: {{c.cc}}</p>
+                    <p style="font-size: 12px; ">Ciudad de Registro: {{c.ciudad}}</p>
+                    <p style="font-size: 12px;">Placas: {{c.placas}}</p>
+                </ion-card-content>
+              </ion-card>
+          
+              <ion-card>
+                <ion-item>
+                  <ion-card-subtitle>Informacion de seguro</ion-card-subtitle>
+                  <ion-icon slot="end" name="create" color="success" (click)="editSeguro()"></ion-icon>
+                </ion-item>
+              
+                <ion-card-content>
+                  
+                  <p style="font-size: 12px; ">Compañia Aseguradora: {{c.compania}}</p>
+                  <p style="font-size: 12px;">Poliza del seguro: {{c.poliza}}</p>
+                </ion-card-content>
+              </ion-card>
+        
+            </ion-list>
+      </ion-slide>
+    </ion-slides>
+
+    <!--Tarjetas de Motos en lista-->
+    <!--
+    <ion-list *ngFor="let c of newMoto" class="list-group-item">
+
+      <ion-card>
+        <ion-item>
+          <ion-card-subtitle>Informacion de mi moto</ion-card-subtitle>
+          <ion-icon slot="end" name="create" color="success" (click)="editMotos()"></ion-icon>
+        </ion-item>
+  
+        <ion-card-content>
+            <p style="font-size: 12px; ">Marca: {{c.marca}}</p>
+            <p style="font-size: 12px;">Submarca: {{c.submarca}}</p>
+            <p style="font-size: 12px; ">Modelo: {{c.modelo}}</p>
+            <p style="font-size: 12px;">Motor: {{c.motor}}</p>
+            <p style="font-size: 12px; ">VIN: {{c.vin}}</p>
+            <p style="font-size: 12px;">CC: {{c.cc}}</p>
+            <p style="font-size: 12px; ">Ciudad de Registro: {{c.ciudad}}</p>
+            <p style="font-size: 12px;">Placas: {{c.placas}}</p>
+        </ion-card-content>
+      </ion-card>
+  
+      <ion-card>
+        <ion-item>
+          <ion-card-subtitle>Informacion de seguro</ion-card-subtitle>
+          <ion-icon slot="end" name="create" color="success" (click)="editSeguro()"></ion-icon>
+        </ion-item>
+      
+        <ion-card-content>
+          
+          <p style="font-size: 12px; ">Compañia Aseguradora: {{c.compania}}</p>
+          <p style="font-size: 12px;">Poliza del seguro: {{c.poliza}}</p>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-list>
+    -->
+  
+
+</ion-content>

@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    ComponentsModule,
     HttpClientModule
   ],
   providers: [

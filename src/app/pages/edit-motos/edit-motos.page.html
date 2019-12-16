@@ -1,0 +1,160 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Editar mis motos</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-item color="transparent">
+        <ion-icon slot="start" name="speedometer" color="success"></ion-icon>
+        <h4 class="ion-text-center">
+            Mis Motos</h4>
+    </ion-item>
+
+    <ion-grid>
+
+        <ion-row>
+            <ion-col size="12">
+                <ion-text color="dark">
+                    <h5>Datos Motocicleta</h5>
+                </ion-text>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="{{label}}">(*) Propietario</ion-label>
+                    <ion-input type="text" [(ngModel)]="propietario" [disabled]="disabled" value="{{motos.propietario}}"></ion-input>
+                    <ion-icon
+                        (click)="presentPopover($event, 'propietario')"
+                        name="information-circle"
+                        color="light"
+                        size="small"
+                        slot="end"
+                        align-self-center="align-self-center"></ion-icon>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="{{label}}">(*) Conductor</ion-label>
+                    <ion-input type="text" [(ngModel)]="conductor" [disabled]="disabled" value="{{motos.conductor}}"></ion-input>
+                    <ion-icon
+                        (click)="presentPopover($event, 'conductor')"
+                        name="information-circle"
+                        color="light"
+                        size="small"
+                        slot="end"
+                        align-self-center="align-self-center"></ion-icon>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="{{label}}">(*) Marca</ion-label>
+                    <ion-input type="text" [(ngModel)]="marca" [disabled]="disabled" value="{{motos.marca}}"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="{{label}}">(*) Submarca</ion-label>
+                    <ion-input type="text" [(ngModel)]="submarca" [disabled]="disabled" value="{{motos.submarca}}"></ion-input>
+                    <ion-icon
+                        (click)="presentPopover($event, 'submarca')"
+                        name="information-circle"
+                        color="light"
+                        size="small"
+                        slot="end"
+                        align-self-center="align-self-center"></ion-icon>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="{{label}}">(*) Modelo(año)</ion-label>
+                    <ion-input type="text" [(ngModel)]="modelo" [disabled]="disabled" value="{{motos.modelo}}"></ion-input>
+                    <ion-icon
+                        (click)="presentPopover($event, 'modelo')"
+                        name="information-circle"
+                        color="light"
+                        size="small"
+                        slot="end"
+                        align-self-center="align-self-center"></ion-icon>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="{{label2}}">No. Motor</ion-label>
+                    <ion-input type="text" [(ngModel)]="motor" value="{{motos.motor}}"></ion-input>
+                    <ion-icon
+                        (click)="presentPopover($event, 'motor')"
+                        name="information-circle"
+                        color="light"
+                        size="small"
+                        slot="end"
+                        align-self-center="align-self-center"></ion-icon>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="{{label}}">(*) No. Serie (VIN)</ion-label>
+                    <ion-input type="text" maxlength="17" [(ngModel)]="vin" [disabled]="disabled" value="{{motos.vin}}"></ion-input>
+                    <ion-icon
+                        (click)="presentPopover($event, 'vin')"
+                        name="information-circle"
+                        color="light"
+                        size="small"
+                        slot="end"
+                        align-self-center="align-self-center"></ion-icon>
+                </ion-item>
+                <p style="color: #A50202;font-size: 10px;" [hidden]="hide4">* Favor de llenar los campos correctamente</p>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="{{label}}">(*) Cilindrada</ion-label>
+                    <ion-input type="number" [(ngModel)]="cc" [disabled]="disabled" value="{{motos.cc}}"></ion-input>
+                    <ion-icon
+                        (click)="presentPopover($event, 'cc')"
+                        name="information-circle"
+                        color="light"
+                        size="small"
+                        slot="end"
+                        align-self-center="align-self-center"></ion-icon>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="{{label}}">(*) Ciudad</ion-label>
+                    <ion-input type="text" [(ngModel)]="ciudad" [disabled]="disabled" value="{{motos.ciudad}}"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12">
+                <ion-item>
+                    <ion-label position="stacked" color="{{label}}">(*) Placas</ion-label>
+                    <ion-input type="text" [(ngModel)]="placas" value="{{motos.placas}}"></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        
+        <ion-row>
+            <ion-col>
+                <ion-button
+                    (click)="cerrarModal()"
+                    color="transparent"
+                    expand="block"
+                    size="default"
+                    style="margin-top: 30px; ">
+                    <span style="color: #707070">Cancelar</span>
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button
+                    (click)="editMotos(motor, placas)"
+                    color="success"
+                    expand="block"
+                    size="default"
+                    style="margin-top: 30px; ">
+                    Guardar
+                </ion-button>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+</ion-content>

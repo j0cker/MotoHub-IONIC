@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar mi perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-item color="transparent">
+        <ion-icon slot="start" name="person" color="success"></ion-icon>
+        <h4 class="ion-text-center">
+            Mis Perfil</h4>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+          <ion-col size="12">
+              <ion-text color="dark">
+                  <h5>Datos Personales</h5>
+              </ion-text>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label position="stacked" color="{{label}}" required="true">(*) Nombre(s)
+                  </ion-label>
+                  <ion-input type="text" [(ngModel)]="nombre" value="{{profile.nombre}}"></ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label position="stacked" color="{{label}}">(*) Apellido
+                  </ion-label>
+                  <ion-input type="text" [(ngModel)]="apellido" value="{{profile.apellido}}"></ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label position="stacked" color="{{label}}">(*) Año de nacimiento</ion-label>
+                  <ion-input type="tel" maxlength="4" [(ngModel)]="edad" value="{{profile.edad}}"></ion-input>
+              </ion-item>
+              <p style="color: #A50202;font-size: 10px;" [hidden]=hide1>* Favor de llenar los campos correctamente</p>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label position="stacked" color="{{label}}">(*) Celular</ion-label>
+                  <ion-input type="tel" maxlength="10" [(ngModel)]="celular" value="{{profile.celular}}"></ion-input>
+                  <ion-icon
+                      (click)="presentPopover($event, 'celular')"
+                      name="information-circle"
+                      color="light"
+                      size="small"
+                      slot="end"
+                      align-self-center="align-self-center"></ion-icon>
+              </ion-item>
+              <p style="color: #A50202;font-size: 10px;" [hidden]=hide2>* Favor de llenar los campos correctamente</p>
+          </ion-col>
+          <ion-col size="12">
+              <ion-item>
+                  <ion-label position="stacked" color="light">Moto Club</ion-label>
+                  <ion-input type="text" [(ngModel)]="motoClub" value="{{profile.motoclub}}"></ion-input>
+                  <ion-icon
+                      (click)="presentPopover($event, 'motoclub')"
+                      name="information-circle"
+                      color="light"
+                      size="small"
+                      slot="end"
+                      align-self-center="align-self-center"></ion-icon>
+              </ion-item>
+          </ion-col>
+      </ion-row>
+
+      <ion-row>
+          <ion-col>
+              <ion-button
+                  (click)="cerrarModal()"
+                  color="transparent"
+                  expand="block"
+                  size="default"
+                  style="margin-top: 30px; ">
+                  <span style="color: #707070">Cancelar</span>
+              </ion-button>
+          </ion-col>
+          <ion-col>
+              <ion-button
+                  (click)="editPerfil(nombre, apellido, edad, celular, motoClub)"
+                  color="success"
+                  expand="block"
+                  size="default"
+                  style="margin-top: 30px; ">
+                  Guardar
+              </ion-button>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

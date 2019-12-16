@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar class="motohub" color="">
+        <ion-buttons slot="start">
+            <ion-menu-button color="success" menu="perfil"></ion-menu-button>
+        </ion-buttons>
+        <ion-title id="titulo" style="color: white">
+            <img
+                src="../../assets/img/logoMH3.png"
+                alt=""
+                style="max-width: 50%; margin-top: 3%"></ion-title>
+        <ion-icon slot="end" name="person" color="success" size="large" routerLink="/perfil"></ion-icon>
+      </ion-toolbar>
+    </ion-header>
+
+<ion-content>
+
+    <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <div class="avatar">
+      <p class="ion-text-center" style="font-size: 30px; color: white; ">{{i_nombre}}{{i_apellido}}</p>
+    </div>
+      
+    <p class="ion-text-center" style="font-size: 18px;">{{profile.nombre}} {{profile.apellido}}</p>
+    <p class="ion-text-center">{{profile.correo}}</p>
+
+    <ion-card>
+        <ion-item>
+            <ion-card-subtitle>Informacion de Perfil</ion-card-subtitle>
+            <ion-icon slot="end" name="create" color="success" (click)="editProfile()"></ion-icon>
+        </ion-item>
+
+        <ion-card-content>
+            <p style="font-size: 12px; ">Año de nacimiento: {{profile.edad}}</p>
+            <p style="font-size: 12px;">Celular: +52 1 {{profile.celular}}</p>
+            <p style="font-size: 12px; ">Moto Club: {{profile.motoclub}}</p>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-item>
+            <ion-card-subtitle>Informacion de Salud</ion-card-subtitle>
+            <ion-icon slot="end" name="create" color="success" (click)="editSalud()"></ion-icon>
+        </ion-item>
+
+        <ion-card-content>
+            <p style="font-size: 12px; ">No. de Seguro: {{profile.seguro}}</p>
+            <p style="font-size: 12px;">Tipo de Sangre: {{profile.sangre}}</p>
+            <p style="font-size: 12px; ">Alergia(s): {{profile.alergia}}</p>
+            <p style="font-size: 12px;">Donacion de organos: {{profile.organos}}</p>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

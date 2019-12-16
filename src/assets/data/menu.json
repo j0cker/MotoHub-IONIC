@@ -1,0 +1,47 @@
+[
+    {
+        "icon": "home",
+        "name": "Inicio",
+        "redirectTo": "/dashboard"
+    },
+    {
+        "icon": "person",
+        "name": "Perfil",
+        "redirectTo": "/perfil"
+    },
+    {
+        "icon": "speedometer",
+        "name": "Mis motos",
+        "redirectTo": "/mis-motos"
+    },
+    {
+        "icon": "contact",
+        "name": "Contacto de emergencia",
+        "redirectTo": "/contacto-emerg"
+    },
+    {
+        "icon": "construct",
+        "name": "Servicios",
+        "redirectTo": "/servicios"
+    },
+    {
+        "icon": "book",
+        "name": "Reglamento",
+        "redirectTo": "/contactoEmerg"
+    },
+    {
+        "icon": "map",
+        "name": "Rutas",
+        "redirectTo": "/contactoEmerg"
+    },
+    {
+        "icon": "people",
+        "name": "Blog",
+        "redirectTo": "/contactoEmerg"
+    },
+    {
+        "icon": "cart",
+        "name": "Tiendas",
+        "redirectTo": "/contactoEmerg"
+    }
+]

@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PopinfoComponent } from './popinfo/popinfo.component';
-
-
+import { MenuComponent } from './menu/menu.component';
+import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    PopinfoComponent
+    PopinfoComponent,
+    MenuComponent
   ],
   exports: [
-    PopinfoComponent
+    PopinfoComponent,
+    MenuComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    IonicModule,
+    RouterModule
   ]
 })
 export class ComponentsModule { }
