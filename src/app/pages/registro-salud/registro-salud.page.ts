@@ -66,8 +66,6 @@ export class RegistroSaludPage implements OnInit {
   registro(seguro: any, sangre: any, alergia: any, organos: any, contactoEmergencia: any, parentezco: any, celContacto: any) {
 
     // tslint:disable-next-line: max-line-length
-    this.dataService.userPost(this.user.correo, this.user.password, this.user.nombre, this.user.apellido, this.user.edad, this.user.celular, this.user.conductor, this.user.propietario, this.user.motoClub, this.user.marca, this.user.submarca, this.user.modelo, this.user.motor, this.user.vin, this.user.cc, this.user.ciudad, this.user.placas, this.user.compania, this.user.poliza, seguro, sangre, alergia, organos, contactoEmergencia, parentezco, celContacto )
-    .subscribe( (data: any) => {
 
       console.log('success: ' + data.success);
       // this.userData = data;
