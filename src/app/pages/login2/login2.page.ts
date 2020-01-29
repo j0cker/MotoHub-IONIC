@@ -28,11 +28,13 @@ export class Login2Page implements OnInit {
     this.dataService.login(correo, password)
     .subscribe( (data: any) => {
 
+      console.log('[Login][Entrar] Data: ' + data);
+      console.log('[Login][Entrar] success: ' + data.success);
+
       // this.userData = data;
       // tslint:disable-next-line: triple-equals
       if (data.success == 'TRUE') {
-        console.log('[Login][Entrar] Data: ' + data);
-        console.log('[Login][Entrar] success: ' + data.success);
+  
         console.log('[Login][Entrar] Token: ' + data.token);
         console.log('[Login][Entrar] Usuario: ' + data.data[0].id_usuarios);
 

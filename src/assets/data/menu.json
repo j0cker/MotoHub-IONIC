@@ -20,8 +20,8 @@
         "redirectTo": "/contacto-emerg"
     },
     {
-        "icon": "construct",
-        "name": "Servicios",
+        "icon": "hand",
+        "name": "Reporte de robo",
         "redirectTo": "/servicios"
     },
     {
@@ -43,5 +43,9 @@
         "icon": "cart",
         "name": "Tiendas",
         "redirectTo": "/contactoEmerg"
+    },{
+        "icon": "information-circle-outline",
+        "name": "Contacto",
+        "redirectTo": "/contacto"
     }
 ]

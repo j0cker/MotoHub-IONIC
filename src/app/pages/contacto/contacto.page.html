@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar class="motohub" color="">
+      <ion-buttons slot="start">
+          <ion-menu-button color="success" menu="perfil"></ion-menu-button>
+      </ion-buttons>
+      <ion-title id="titulo" style="color: white">
+          <img
+              src="../../assets/img/logoMH3.png"
+              alt=""
+              style="max-width: 50%; margin-top: 3%"></ion-title>
+      <ion-icon slot="end" name="person" color="success" size="large" routerLink="/perfil" style="margin-right: 4%;"></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content class="ion-padding">
+
+  <h1 class="ion-text-center"><ion-icon slot="start" name="information-circle-outline" color="success"></ion-icon> Contacto</h1>
+  <br><br>
+
+  <ion-item>
+    <ion-label position="stacked" color="{{label}}" required="true">(*) Nombre Completo
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked" color="{{label}}" required="true">(*) Correo
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="correo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked" color="light" required="true">Celular
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="celular"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked" color="{{label}}">(*) Mensaje</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>
+
+  <ion-button color="success" expand="block" size="default" style="margin-top: 30px;">Enviar</ion-button>
+
+</ion-content>

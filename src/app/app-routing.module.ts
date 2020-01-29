@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'servicios', loadChildren: './pages/servicios/servicios.module#ServiciosPageModule' },
   { path: 'contacto-emerg', loadChildren: './pages/contacto-emerg/contacto-emerg.module#ContactoEmergPageModule' },
   { path: 'recover-password/:celular', loadChildren: './pages/recover-password/recover-password.module#RecoverPasswordPageModule' },
+  { path: 'contacto', loadChildren: './pages/contacto/contacto.module#ContactoPageModule' },
 ];
 
 @NgModule({

@@ -53,6 +53,39 @@ export class VerificacionPasswordPage implements OnInit {
     }
   }
 
+  resendSMS() {
+    this.dataService.sendSMS(this.celular)
+      .subscribe((data: any) => {
+
+          console.log('success: ' + data.success);
+          // this.userData = data;
+          // tslint:disable-next-line: triple-equals
+          if (data.success == 'TRUE') {
+              this.resend();
+              console.log('Se reenvio SMS');
+
+          } else {
+              this.mal(data.description);
+              console.log('Error: ' + data.description);
+          }
+
+      }, (error) => {
+          console.log(error);
+          // this.userData = 'Este es el error: ' + error.toString();
+          this.mal(error);
+      });
+    }
+
+    async resend() {
+        const toast = await this.toastController.create({
+          message: 'Se reenvió código de verificación',
+          duration: 4000,
+          color: 'dark',
+          position: 'bottom'
+        });
+        toast.present();
+    }
+
   cerrarModal() {
     this.modalCtrl.dismiss();
   }

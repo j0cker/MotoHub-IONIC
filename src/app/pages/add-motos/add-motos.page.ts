@@ -23,10 +23,10 @@ export class AddMotosPage implements OnInit {
   placas: any;
   compania: any;
   poliza: any;
-
+  otro: any;
   isDisabled: boolean;
   info: any;
-  hide = true;
+  hide = true; otroHidden = true;
   label = 'light'; label2 = 'light';
   flag: boolean;
   disabled = true;
@@ -57,12 +57,28 @@ export class AddMotosPage implements OnInit {
     }
   }
 
+  otro_change($event: any) {
+    // console.log($event.detail.value);
+    if ($event.detail.value === '1') {
+      // console.log('Opcion OTRA');
+      this.otroHidden = false;
+      // console.log(this.otroHidden);
+    } else {
+      this.otroHidden = true;
+    }
+  }
+
   // tslint:disable-next-line: max-line-length
   addMotos(conductor: any, propietario: any, marca: any, submarca: any, modelo: any, motor: any, vin: any, cc: any, ciudad: any, placas: any, compania: any, poliza: any) {
     this.id_user = localStorage.getItem('idUsuario');
     this.token = localStorage.getItem('Token');
     console.log('[Dashboard][ngOnInit] Token: ' + this.token);
     console.log('[Dashboard][ngOnInit] ID Usuario: ' + this.id_user);
+
+    if (this.otroHidden == false) {
+      marca = this.otro;
+      // console.log('Marca otro: ' + marca);
+    }
 
     if (this.isDisabled == true || this.isDisabled == undefined) {
       this.label2 = 'light';

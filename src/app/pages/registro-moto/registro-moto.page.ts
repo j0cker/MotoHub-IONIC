@@ -25,8 +25,9 @@ export class RegistroMotoPage implements OnInit {
   placas: any;
   compania: any;
   poliza: any;
+  otro: any;
   info: any; checked = false; disabled = false;
-  hide3 = true; hide4 = true;
+  hide3 = true; hide4 = true; otroHidden = true;
   label = 'light'; label2 = 'light';
   flag3: boolean; flag4: boolean;
 
@@ -70,8 +71,23 @@ export class RegistroMotoPage implements OnInit {
     }
   }
 
+  otro_change($event: any) {
+    // console.log($event.detail.value);
+    if ($event.detail.value === '1') {
+      // console.log('Opcion OTRA');
+      this.otroHidden = false;
+    } else {
+      this.otroHidden = true;
+    }
+  }
+
   // tslint:disable-next-line: max-line-length
   regMoto(conductor: any, propietario: any, marca: any, submarca: any, modelo: any, motor: any, vin: any, cc: any, ciudad: any, placas: any, compania: any, poliza: any) {
+
+    if (this.otroHidden == false) {
+      marca = this.otro;
+      // console.log('Marca otro: ' + marca);
+    }
 
     if (this.isDisabled == true || this.isDisabled == undefined) {
       this.label2 = 'light';

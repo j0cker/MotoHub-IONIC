@@ -3,6 +3,10 @@
 <ion-content >
 
   <div class="ion-padding motohub" color="motohub" style="height: 55%">
+
+    <ion-buttons slot="start" color="transparent">
+      <ion-back-button defaultHref="." style="color: white"></ion-back-button>
+    </ion-buttons>  
     <img class="" src="../../assets/img/logoMH2.png" alt="" style="max-width: 70%; margin-left: 15%; margin-top: 30%;">
     <!--<p id="titulo" class="ion-text-center" style="font-size:40px ;color: white;">Moto Hub</p>-->
   </div>
@@ -17,6 +21,7 @@
       <ion-label position="stacked" color="light">Contraseña</ion-label>
       <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
+    <p class="ion-text-center" routerLink="/password" style="color:#333333">¿Olvidaste tu contraseña?</p>
     <ion-button (click)="entrar(correo, password)" color="success" expand="block" size="default" style="margin-top: 30px; ">
       Iniciar sesión
     </ion-button>

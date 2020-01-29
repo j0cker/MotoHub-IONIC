@@ -56,20 +56,33 @@
                 <ion-col size="12">
                     <ion-item>
                         <ion-label position="stacked" color="{{label}}">(*) Marca</ion-label>
-                        <ion-select placeholder="Selecciona una" [(ngModel)]="marca">
+                        <ion-select placeholder="Selecciona una" [(ngModel)]="marca" (ionChange)="otro_change($event)">
                             <ion-select-option value="BMW">BMW</ion-select-option>
                             <ion-select-option value="Suzuki">Suzuki</ion-select-option>
                             <ion-select-option value="Yamaha">Yamaha</ion-select-option>
                             <ion-select-option value="Kawasaki">Kawasaki</ion-select-option>
                             <ion-select-option value="Vento">Vento</ion-select-option>
                             <ion-select-option value="Italika">Italika</ion-select-option>
+                            <ion-select-option value="Honda">Honda</ion-select-option>
+                            <ion-select-option value="Dinamo">Dinamo</ion-select-option>
                             <ion-select-option value="Ducati">Ducati</ion-select-option>
                             <ion-select-option value="Carabela">Carabela</ion-select-option>
                             <ion-select-option value="Bajaj">Bajaj</ion-select-option>
                             <ion-select-option value="Harley Havidson">Harley Davidson</ion-select-option>
                             <ion-select-option value="Triumph">Triumph</ion-select-option>
                             <ion-select-option value="Islo">Islo</ion-select-option>
+                            <ion-select-option value="MV Agusta">MV Agusta</ion-select-option>
+                            <ion-select-option value="BSA">BSA</ion-select-option>
+                            <ion-select-option value="Norton">Norton</ion-select-option>
+                            <ion-select-option value="Indian">Indian</ion-select-option>
+                            <ion-select-option value="AIMA">AIMA</ion-select-option>
+                            <ion-select-option value="IZUKA">IZUKA</ion-select-option>
+                            <ion-select-option value="MB">MB</ion-select-option>
+                            <ion-select-option value="Vespa">Vespa</ion-select-option>
+                            <ion-select-option value="Islo">Islo</ion-select-option>
+                            <ion-select-option value="1">Otra</ion-select-option>
                         </ion-select>
+                        <ion-input type="text" [hidden]=otroHidden [(ngModel)]="otro"></ion-input>
                     </ion-item>
                 </ion-col>
                 <ion-col size="12">

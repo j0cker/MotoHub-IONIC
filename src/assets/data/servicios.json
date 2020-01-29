@@ -1,5 +1,9 @@
 [
     {
+        "name": "¿Qué hacer en caso de robo?",
+        "redirectTo": "/perfil"
+    },
+    {
         "name": "Generacion de reporte de robo",
         "redirectTo": "/perfil"
     },
